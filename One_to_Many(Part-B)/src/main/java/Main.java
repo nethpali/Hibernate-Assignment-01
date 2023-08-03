@@ -10,6 +10,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+        //Create Objects
         Book book=new Book();
         book.setIsbn("ISBN004");
         book.setName("Jane");
@@ -38,6 +39,7 @@ public class Main {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
+        //Save Object
         session.persist(book);
         session.persist(book1);
         session.persist(author);

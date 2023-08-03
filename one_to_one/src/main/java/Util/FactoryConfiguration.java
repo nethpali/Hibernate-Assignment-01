@@ -11,8 +11,10 @@ public class FactoryConfiguration {
     private SessionFactory sessionFactory;
 
     private FactoryConfiguration(){
+        //Factory Configuration
         Configuration configuration = new Configuration().configure().addAnnotatedClass(Author.class)
                 .addAnnotatedClass(Book.class);
+        //Create Session
         sessionFactory = configuration.buildSessionFactory();
     }
 

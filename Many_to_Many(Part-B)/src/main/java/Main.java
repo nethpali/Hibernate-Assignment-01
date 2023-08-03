@@ -9,6 +9,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+        //Create Object
         Book book=new Book();
         book.setIsbn("ISBN001");
         book.setName("Her");
@@ -46,6 +48,7 @@ public class Main {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
+        //Save Object
         session.persist(book);
         session.persist(book1);
         session.persist(author);

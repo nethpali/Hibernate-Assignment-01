@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 public class Main {
     public static void main(String[] args) {
 
+        //Create Book Object
         Book book=new Book();
         book.setIsbn("ISBN001");
         book.setName("Madoldoowa");
@@ -20,6 +21,8 @@ public class Main {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
+
+        //Save Object to database
         session.persist(author);
         session.persist(book);
 

@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        //Create new Object in book type
         Book book=new Book();
         book.setIsbn("ISBN001");
         book.setName("Village ");
@@ -25,11 +26,17 @@ public class Main {
         book2.setName("Village By the sea");
         book2.setType("Gamperaliya");
 
+        //Get the Hibernate session instance from the factory configuration
         Session session = FactoryConfiguration.getInstance().getSession();
+        //Begin a new transaction
         Transaction transaction = session.beginTransaction();
+
+        //Save the book object to the database
         session.persist(book);
         session.persist(book1);
         session.persist(book2);
+
+        //commit the transaction
         transaction.commit();
         session.close();
         searchId();
@@ -37,6 +44,8 @@ public class Main {
         DeleteBook();
 
     }
+
+    //Search the book object from database
     public static void searchId(){
         Scanner input=new Scanner(System.in);
 
@@ -56,6 +65,7 @@ public class Main {
 
     }
 
+    //Update the book object from database
     public static void updateBook(){
 
         System.out.println("Update Book");
@@ -70,6 +80,8 @@ public class Main {
         session.close();
 
     }
+
+    //Delete the book Object from database
     public static void DeleteBook(){
         Scanner input=new Scanner(System.in);
 
